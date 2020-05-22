@@ -12,4 +12,5 @@ echo "Got collection id: "$collection_id
 echo
 echo "Now creating docker container with the following name and id: "
 
+cd docker_files
 ./startDocker.sh $input_path $output_path $collection_id
