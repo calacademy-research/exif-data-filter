@@ -1,15 +1,16 @@
 import exiftool
 from os import listdir
 from os.path import join, isfile
-import csv
+import csv, time
 from functools import reduce
 
 
-def format_path(path):
-    return "".join(["-" if char == "/" else "" if char == "." else char for char in path]) #oof this is not readable
+# def format_path(path):
+#     return "".join(["-" if char == "/" else "" if char == "." else char for char in path]) #oof this is not readable
 
 def generate_filename(path):
-    return format_path(path)+".csv"
+    timestr=time.strftime("%Y%m%d%H%M%S")
+    return "exiftool-"+timestr+".csv"
 
 def concat_items(item1, item2):
     return item1 + ', ' + item2
