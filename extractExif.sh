@@ -12,5 +12,10 @@ echo "Got collection id: "$collection_id
 echo
 echo "Now creating docker container with the following name and id: "
 
-cd docker_files
+rel_path="`dirname \"$0\"`"
+abs_path="`( cd \"$rel_path\" && pwd )`"
+outer_dir="`dirname \"$abs_path\"`"
+docker_source=$outer_dir"/docker_files"
+echo $docker_source
+cd $docker_source
 ./startDocker.sh $input_path $output_path $collection_id
