@@ -14,8 +14,6 @@ echo "Now creating docker container with the following name and id: "
 
 rel_path="`dirname \"$0\"`"
 abs_path="`( cd \"$rel_path\" && pwd )`"
-outer_dir="`dirname \"$abs_path\"`"
-docker_source=$outer_dir"/docker_files"
-echo $docker_source
+docker_source=$abs_path"/docker_files"
 cd $docker_source
 ./startDocker.sh $input_path $output_path $collection_id

@@ -70,7 +70,9 @@ def generate_row(path, file, exif_extractor, csv_writer, collection_id, header=F
 def extract_exif_data_from_dir(path, collection_id, output):
     files_in_dir = [f for f in listdir(path) if isfile(join(path, f))
                         and f.lower().endswith(('.tif'))]
-
+    if files_in_dir == []:
+        print("Filter.py did not find any .tif files in the directory given, "+path)
+        return ""
     #print("Debug: Found files, "+str(files_in_dir))
 
     with open(join(output, generate_filename(path)), "w") as output:
